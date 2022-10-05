@@ -1,0 +1,44 @@
+name: tank_game
+description: Tank Game
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+  get: ^4.6.5
+
+  #flame
+  flame: ^1.4.0
+  flame_audio: ^1.3.2
+  audioplayers: ^1.1.0
+  flame_tiled:
+    git:
+      url: https://github.com/flame-engine/flame_tiled.git
+  flame_splash_screen: ^0.1.0
+
+  #rive
+  rive: ^0.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flame_lint: ^0.1.3
+
+flutter:
+  uses-material-design: true
+
+#  assets:
+#    - assets/
+#    - assets/images/
+#    - assets/rives/
+#    - assets/maps/
+#    - assets/audio/
+#    - assets/audio/music/
+#    - assets/audio/sfx/
