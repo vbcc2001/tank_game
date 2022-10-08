@@ -11,15 +11,15 @@ import 'package:rive/rive.dart';
 
 import '../f06_pages/f04_scene_01/game.dart';
 
-class TilesComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,HasHitboxes,Collidable {
-
+// class TilesComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,HasHitboxes,Collidable {
+  class TilesComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent {
   @override
   int get priority => LayerPriority.map;
   final String tileName;
   late RiveCanvas riveCanvas;
 
   TilesComponent(this.tileName, Vector2 position):super(size:Vector2(64,64),position:position){
-    addHitbox(HitboxRectangle());
+    // addHitbox(HitboxRectangle());
   }
   @override
   Future<void> onLoad() async {

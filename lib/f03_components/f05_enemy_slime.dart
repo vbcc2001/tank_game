@@ -19,15 +19,15 @@ import 'f01_flying_attack_component.dart';
 import 'f02_text_damage_component.dart';
 import 'f03_rive_component.dart';
 
-class EnemySlimeComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,HasHitboxes,Collidable,Attackable {
-
+// class EnemySlimeComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,HasHitboxes,Collidable,Attackable {
+  class EnemySlimeComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,Attackable {
   bool _isCollision = false;
 
   @override
   int get priority => LayerPriority.components;
 
   EnemySlimeComponent({required Vector2 position}): super(size:Vector2(40,32),position:position){
-      addHitbox(HitboxRectangle());
+      // addHitbox(HitboxRectangle());
     }
   @override
   Future<void> onLoad() async {
@@ -59,11 +59,11 @@ class EnemySlimeComponent extends PositionComponent with HasGameRef<MyGame>,MyCo
     if(life == 0) die();
   }
 
-  @override
-  void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
-    _isCollision = true;
-    if(other is FlyingAttackComponent){
-      damage(other.damage);
-    }
-  }
+  // @override
+  // void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
+  //   _isCollision = true;
+  //   if(other is FlyingAttackComponent){
+  //     damage(other.damage);
+  //   }
+  // }
 }

@@ -54,12 +54,12 @@ class TextDamageComponent extends TextComponent with HasGameRef<MyGame> {
 
   @override
   void render(Canvas c) {
-    if (shouldRemove) return;
+    // if (shouldRemove) return;
     super.render(c);
   }
   @override
   void update(double t) {
-    if (shouldRemove) return;
+    // if (shouldRemove) return;
     position.y += _velocity;
     position.x += _moveAxisX;
     _velocity += gravity;

@@ -1,6 +1,6 @@
 import 'dart:ui' show Image;
 
-import 'package:flame/assets.dart';
+import 'package:flame/cache.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/palette.dart';

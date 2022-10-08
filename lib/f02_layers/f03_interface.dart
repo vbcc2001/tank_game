@@ -46,10 +46,10 @@ class InterfaceLayer extends PositionComponent with  HasGameRef<MyGame> {
   @override
   void render(Canvas canvas) {
     super.render(canvas);
-    if (gameRef.showFPS) {
-      double? fps = gameRef.fps(100);
-      if (fps >= 58) { textConfigGreen.render(canvas, 'FPS: ${fps.toStringAsFixed(2)}', Vector2((gameRef.size.x) - 100, 20),);}
-      else { textConfigRed.render(canvas, 'FPS: ${fps.toStringAsFixed(2)}', Vector2((gameRef.size.x) - 100, 20),);}
-    }
+    // if (gameRef.showFPS) {
+    //   double? fps = gameRef.fps(100);
+    //   if (fps >= 58) { textConfigGreen.render(canvas, 'FPS: ${fps.toStringAsFixed(2)}', Vector2((gameRef.size.x) - 100, 20),);}
+    //   else { textConfigRed.render(canvas, 'FPS: ${fps.toStringAsFixed(2)}', Vector2((gameRef.size.x) - 100, 20),);}
+    // }
   }
 }

@@ -27,7 +27,8 @@ import '../../f04_mixin/f09_movement.dart';
 import '../../f05_map/f01_tiles.dart';
 import '../../f05_map/f02_map_01.dart';
 
-class MyGame1 extends MyGame  with HasCollidables,KeyboardHandler,HasTappables,HasHoverables,MouseMovementDetector,HasDraggables {
+// class MyGame1 extends MyGame  with HasCollidables,KeyboardHandler,HasTappables,HasHoverables,MouseMovementDetector,HasDraggables {
+class MyGame1 extends MyGame  with KeyboardHandler,HasTappables,HasHoverables,MouseMovementDetector,HasDraggables {
 
   @override
   bool showFPS = true;

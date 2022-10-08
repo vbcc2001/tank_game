@@ -7,9 +7,9 @@ import '../../../../f01_utils/f06_audio.dart';
 import 'components/f01_main_menu.dart';
 
 
-class MainGame extends MyGame with HasTappables,MouseMovementDetector,HasHoverables  {
-
-  @override
+// class MainGame extends MyGame with HasTappables,MouseMovementDetector,HasHoverables  {
+class MainGame extends MyGame with MouseMovementDetector  {
+  // @override
   bool showFPS = true;
   final _imageNames = [
     // ParallaxImageData('assets/images/f06_fire_temple.png'),

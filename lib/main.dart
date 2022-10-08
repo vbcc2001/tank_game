@@ -1,8 +1,8 @@
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'f01_utils/f04_logger.dart';
-import 'f01_utils/f05_routes.dart';
+import 'f00_configs/f04_logger.dart';
+import 'f00_configs/f05_routes.dart';
 
 
 void main() async {

@@ -23,8 +23,8 @@ import '../f06_pages/f04_scene_01/game.dart';
 import 'f01_flying_attack_component.dart';
 import 'f04_bullet_component.dart';
 
-class PlayerTank extends PositionComponent with HasGameRef<MyGame1>,MyComponent,Lighting,KeyboardHandler,HasHitboxes,Collidable, Attackable {
-
+// class PlayerTank extends PositionComponent with HasGameRef<MyGame1>,MyComponent,Lighting,KeyboardHandler,HasHitboxes,Collidable, Attackable {
+class PlayerTank extends PositionComponent with HasGameRef<MyGame1>,MyComponent,Lighting,KeyboardHandler, Attackable {
   /// The file to draw on the canvas
   late RiveFile riveFile;
   /// If this is non Null, this will be drawn instead of [riveFile.mainArtboard]
@@ -53,7 +53,7 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame1>,MyComponent,
   int get priority => LayerPriority.components;
 
   PlayerTank() : super(size:spriteSize,anchor:Anchor.center){
-    addHitbox(HitboxCircle());
+    // addHitbox(HitboxCircle());
   }
   @override
   Future<void> onLoad() async {
@@ -224,12 +224,12 @@ class PlayerTank extends PositionComponent with HasGameRef<MyGame1>,MyComponent,
     direction = Direction.down;
     startRunAnimation();
   }
-  @override
-  void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
-    if (other is Collidable) {
-      position.add(-displacement);
-    }
-  }
+  // @override
+  // void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
+  //   if (other is Collidable) {
+  //     position.add(-displacement);
+  //   }
+  // }
 }
 
 

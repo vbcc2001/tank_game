@@ -1,12 +1,13 @@
-import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:audioplayers/audioplayers.dart';
+import 'package:flame_audio/flame_audio.dart';
+// import 'package:flutter/widgets.dart';
 // import 'package:flame_audio/flame_audio.dart';
 
 class MyAudio {
 
-  static AudioCache audioCache = AudioCache(prefix: 'assets/audio/');
+  // static AudioCache audioCache = AudioCache(prefix: 'assets/audio/');
   bool bgmIsPlaying = false;
-  AudioPlayer? audioPlayer;
+  // AudioPlayer? audioPlayer;
 
   // late Settings settings;
   MyAudio._internal();
@@ -25,37 +26,42 @@ class MyAudio {
   ];
 
   Future<void> init() async {
-    await audioCache.loadAll(bgmFiles);
-    await audioCache.loadAll(files);
+    await FlameAudio.audioCache.loadAll(bgmFiles);
+    await FlameAudio.audioCache.loadAll(files);
   }
 
-  Future<void> startBgmMusic  ({ String? fileName, double volume = 1.0}) async {
-    if (audioPlayer != null && audioPlayer!.state != PlayerState.STOPPED) {
-      audioPlayer!.stop();
-    }
-    bgmIsPlaying = true;
-    audioPlayer = await audioCache.loop(fileName??bgmFiles[0], volume: volume);
+  Future<void> startBgmMusic  ( {String? fileName, double volume = 1.0}) async {
+    FlameAudio.bgm.play(fileName??bgmFiles[0],volume:volume);
+    // if (audioPlayer != null && audioPlayer!.state != PlayerState.STOPPED) {
+    //   audioPlayer!.stop();
+    // }
+    // bgmIsPlaying = true;
+    // audioPlayer = await audioCache.loop(fileName??bgmFiles[0], volume: volume);
   }
   Future<void> stopBgmMusic() async {
-    if(audioPlayer!=null){
-      await audioPlayer!.stop();
-    }
-    bgmIsPlaying = false;
+    FlameAudio.bgm.stop();
+    // if(audioPlayer!=null){
+    //   await audioPlayer!.stop();
+    // }
+    // bgmIsPlaying = false;
   }
   Future<void> resumeBgmMusic() async {
-    if(audioPlayer!=null){
-      await audioPlayer!.resume();
-    }
-    bgmIsPlaying = true;
+    FlameAudio.bgm.resume();
+    // if(audioPlayer!=null){
+    //   await audioPlayer!.resume();
+    // }
+    // bgmIsPlaying = true;
   }
   Future<void> pauseBgmMusic() async {
-    if(audioPlayer!=null){
-      await audioPlayer!.pause();
-    }
-    bgmIsPlaying = false;
+    FlameAudio.bgm.pause();
+    // if(audioPlayer!=null){
+    //   await audioPlayer!.pause();
+    // }
+    // bgmIsPlaying = false;
   }
-  Future<AudioPlayer> playSfx(String fileName, {double volume = 1.0}) {
-    return audioCache.play(fileName, volume: volume, mode: PlayerMode.LOW_LATENCY);
+  Future<void> playSfx(String fileName, {double volume = 1.0}) async {
+    FlameAudio.play(fileName,volume:volume);
+    // return audioCache.play(fileName, volume: volume, mode: PlayerMode.LOW_LATENCY);
   }
 }
 

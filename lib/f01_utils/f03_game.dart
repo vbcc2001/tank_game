@@ -14,15 +14,19 @@ import 'package:ordered_set/ordered_set.dart';
 /// CustomBaseGame created to use `Listener` to capture touch screen gestures.
 /// Apply zoom in canvas.
 /// Reorder components per time frame.
-class MyGame extends FlameGame with FPSCounter,PointerDetector {
+// class MyGame extends FlameGame with FPSCounter,PointerDetector {
+class MyGame extends FlameGame with PointerDetector {
   /// 游戏上下文 Context
   final BuildContext context;
   /// 游戏玩家角色
   // final  player =  PlayerTank();
-  final textConfigGreen = TextPaint(style: TextStyle(color: Colors.green, fontSize: 14));
-  final textConfigRed = TextPaint( style: TextStyle(color: Colors.red, fontSize: 14));
+  // final textConfigGreen = TextPaint(style: const TextStyle(color: Colors.green, fontSize: 14));
+  // final textConfigRed = TextPaint( style: const TextStyle(color: Colors.red, fontSize: 14));
+  /// 显示游戏运行帧数
+  FpsTextComponent fpsTextComponent = FpsTextComponent();
   /// Used to show in the interface the FPS.
   bool get showFPS => false;
+
   // final bool showFPS = false;
   /// Components added by the [addLater] method
   final List<Component> _addLater = [];
@@ -58,20 +62,21 @@ class MyGame extends FlameGame with FPSCounter,PointerDetector {
       print(gridY);
       print("+++++++++++++++++++++");
     }
+    add(fpsTextComponent);
   }
 
-  @override
-  void render(Canvas canvas) {
-    super.render(canvas);
-    if (showFPS) {
-      double fpsCount = fps(100);
-      if (fpsCount >= 58) { textConfigGreen.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((canvasSize.x) - 100, 20),);}
-      else { textConfigRed.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((canvasSize.x) - 100, 20),);}
-    }
-  }
+  // @override
+  // void render(Canvas canvas) {
+  //   super.render(canvas);
+  //   // if (showFPS) {
+  //   //   double fpsCount = fps(100);
+  //   //   if (fpsCount >= 58) { textConfigGreen.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((canvasSize.x) - 100, 20),);}
+  //   //   else { textConfigRed.render(canvas, 'FPS: ${fpsCount.toStringAsFixed(2)}', Vector2((canvasSize.x) - 100, 20),);}
+  //   // }
+  // }
 
-  @override
-  void onGameResize(Vector2 canvasSize) {
-    super.onGameResize(canvasSize);
-  }
+  // @override
+  // void onGameResize(Vector2 canvasSize) {
+  //   super.onGameResize(canvasSize);
+  // }
 }

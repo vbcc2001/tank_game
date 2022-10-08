@@ -16,8 +16,8 @@ import '../f06_pages/f04_scene_01/game.dart';
 import 'f03_rive_component.dart';
 import 'f06_player_tank.dart';
 
-class BulletComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,HasHitboxes,Collidable {
-
+// class BulletComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting,HasHitboxes,Collidable {
+class BulletComponent extends PositionComponent with HasGameRef<MyGame>,MyComponent,Lighting {
   final dynamic id;
   final Direction direction;
   final double speed = 200;
@@ -43,7 +43,7 @@ class BulletComponent extends PositionComponent with HasGameRef<MyGame>,MyCompon
   BulletComponent(this.id, this.direction, {required Vector2 position}):
     startPosition =  Vector2.copy(position),
     super(size:Vector2(54,14),position:position,anchor: Anchor.center){
-      addHitbox(HitboxCircle());
+      // addHitbox(HitboxCircle());
     }
   @override
   Future<void> onLoad() async {
@@ -102,16 +102,16 @@ class BulletComponent extends PositionComponent with HasGameRef<MyGame>,MyCompon
     if(position.distanceTo(startPosition)>600) removeFromParent();
 
   }
-  @override
-  void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
-    if (other is ScreenCollidable) {
-      _isWallHit = true;
-      return;
-    }
-    if(other is PlayerTank || other is BulletComponent){
-
-    }else{
-      _isCollision = true;
-    }
-  }
+  // @override
+  // void onCollision(Set<Vector2> intersectionPoints, Collidable other) {
+  //   if (other is ScreenCollidable) {
+  //     _isWallHit = true;
+  //     return;
+  //   }
+  //   if(other is PlayerTank || other is BulletComponent){
+  //
+  //   }else{
+  //     _isCollision = true;
+  //   }
+  // }
 }
